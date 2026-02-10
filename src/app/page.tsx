@@ -1,65 +1,47 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Monitor, Camera, Mic, Share2, Scissors, Play } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gray-950 text-white">
+      {/* Hero */}
+      <div className="flex flex-col items-center justify-center min-h-[80vh] px-6">
+        <div className="text-center max-w-3xl">
+          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-red-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+            Screen Recorder
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-400 mb-10 max-w-xl mx-auto">
+            Record your screen with camera overlay, trim your videos, and share them with a link. No sign-up required.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/record"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-red-500 hover:bg-red-600 text-white text-lg font-semibold rounded-2xl transition-all hover:scale-105 shadow-lg shadow-red-500/25"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Monitor className="w-6 h-6" />
+            Start Recording
+          </Link>
         </div>
-      </main>
+      </div>
+
+      {/* Features */}
+      <div className="max-w-5xl mx-auto px-6 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { icon: Camera, title: 'Camera Overlay', desc: 'Show your face in a circular overlay while recording' },
+            { icon: Mic, title: 'Audio Recording', desc: 'Capture your microphone with noise suppression' },
+            { icon: Scissors, title: 'Video Trimming', desc: 'Trim your recordings with a simple timeline editor' },
+            { icon: Share2, title: 'Instant Sharing', desc: 'Share recordings with a unique link' },
+            { icon: Play, title: 'Custom Player', desc: 'Beautiful playback with speed controls' },
+            { icon: Monitor, title: 'Multiple Sources', desc: 'Record full screen, window, or browser tab' },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+              <Icon className="w-8 h-8 text-red-400 mb-4" />
+              <h3 className="text-lg font-semibold mb-2">{title}</h3>
+              <p className="text-gray-400 text-sm">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
