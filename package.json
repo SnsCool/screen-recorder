@@ -9,12 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.95.3",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.563.0",
     "nanoid": "^5.1.6",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "tus-js-client": "^4.3.1",
     "zustand": "^5.0.11"
   },
   "devDependencies": {
